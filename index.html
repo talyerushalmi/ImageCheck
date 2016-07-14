@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script>
+	var app = angular.module('myApp', []);
+	app.controller('formCtrl', function($scope) {
+		$scope.queue = [];
+		$scope.submit = function() {
+			if ($scope.urlInput){
+				$scope.queue.push(this.urlInput);
+				$scope.urlInput = "";
+			}
+		};
+		$scope.reset = function() {
+			$scope.urlInput = "";
+		}
+		$scope.resetQueue = function() {
+			$scope.queue = [];
+		}
+	});
+	</script>
+</head>
+
+<body>
+	<div ng-app="myApp" ng-controller="formCtrl">
+		<form method="post" enctype="multipart/form-data">
+			<center>
+				<h1>ImageChecker</h1>
+				<h3>Insert a URL to the check queue:</h3>
+				<br />
+				<input type="text" ng-model="urlInput"><br>
+				<br />
+				<input type="submit" ng-click="submit()" value="SUBMIT" />
+				&emsp;
+				<button ng-click="reset()">RESET</button>
+				&emsp;
+				<button ng-click="resetQueue()">RESET QUEUE</button>
+			</center>
+		</form>
+		<p>queue = {{queue}}</p>
+	</div>
+</body>
+
+</html>
