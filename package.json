@@ -1,0 +1,24 @@
+{
+  "name": "imagecheck",
+  "version": "1.0.0",
+  "description": "Packages and metadata for the ImageCheck project",
+  "main": "server.js",
+  "dependencies": {
+    "rsmq": "^0.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talyerushalmi/ImageCheck.git"
+  },
+  "author": "Tal Yerushalmi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talyerushalmi/ImageCheck/issues"
+  },
+  "homepage": "https://github.com/talyerushalmi/ImageCheck#readme"
+}
