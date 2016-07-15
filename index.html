@@ -6,18 +6,20 @@
 	<script>
 	var app = angular.module('myApp', []);
 	app.controller('formCtrl', function($scope) {
-		$scope.queue = [];
-		$scope.submit = function() {
-			if ($scope.urlInput){
-				$scope.queue.push(this.urlInput);
-				$scope.urlInput = "";
-			}
-		};
-		$scope.reset = function() {
+		$scope.reset = function(event) {
+			event.preventDefault();
 			$scope.urlInput = "";
 		}
-		$scope.resetQueue = function() {
-			$scope.queue = [];
+		$scope.submit = function(event) {
+			if ($scope.urlInput != null) {
+				alert("Submitted: " + $scope.urlInput);
+				document.getElementById("form").submit();
+				$scope.urlInput = "";
+			}
+			else {
+				event.preventDefault();
+				alert("URL field is empty.");
+			}
 		}
 	});
 	</script>
@@ -25,21 +27,19 @@
 
 <body>
 	<div ng-app="myApp" ng-controller="formCtrl">
-		<form method="post" enctype="multipart/form-data">
+		<form name="form" method="post" action="/">
 			<center>
 				<h1>ImageChecker</h1>
 				<h3>Insert a URL to the check queue:</h3>
 				<br />
-				<input type="text" ng-model="urlInput"><br>
+				<input type="text" id="urlInput" name="urlInput" ng-model="urlInput" />
 				<br />
-				<input type="submit" ng-click="submit()" value="SUBMIT" />
+				<br />
+				<button ng-click="submit($event)">SUBMIT</button>
 				&emsp;
-				<button ng-click="reset()">RESET</button>
-				&emsp;
-				<button ng-click="resetQueue()">RESET QUEUE</button>
+				<button ng-click="reset($event)">RESET</button>
 			</center>
 		</form>
-		<p>queue = {{queue}}</p>
 	</div>
 </body>
 
