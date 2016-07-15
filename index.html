@@ -11,7 +11,7 @@
 			$scope.urlInput = "";
 		}
 		$scope.submit = function(event) {
-			if ($scope.urlInput != null) {
+			if ($scope.urlInput != null && $scope.urlInput != "") {
 				alert("Submitted: " + $scope.urlInput);
 				document.getElementById("form").submit();
 				$scope.urlInput = "";
