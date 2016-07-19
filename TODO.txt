@@ -1,0 +1,2 @@
+> fix the REDIS server to work with rsmq
+> build the url checker
