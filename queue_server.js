@@ -111,6 +111,13 @@ function checkUrl(urlInput) {
 		fig: '23464947',
 		xpm: '2f2a2058504d202a2f'
 	};
+
+	var options = {
+		method: 'GET',
+		url: urlInput,
+		encoding: null // keeps the body as buffer
+	};	
+
 	request(options, function (err, response, body) {
 		if(!err && response.statusCode == 200){
 			for (var format in magicNums) {
