@@ -4,6 +4,7 @@
   "description": "Packages and metadata for the ImageCheck project",
   "main": "server.js",
   "dependencies": {
+    "async": "^2.0.0",
     "body-parser": "^1.15.2",
     "formidable": "^1.0.17",
     "rsmq": "^0.7.1"
